@@ -12,19 +12,33 @@ type EventFunc func(string) string
 
 var OnEvent EventFunc
 
+type Level uint32
+
 const (
-	Error = 0
-	Info  = 1
+	// DebugLevel defines debug log level.
+	DebugLevel Level = iota
+	// InfoLevel defines info log level.
+	InfoLevel
+	// WarnLevel defines warn log level.
+	WarnLevel
+	// ErrorLevel defines error log level.
+	ErrorLevel
+	// FatalLevel defines fatal log level.
+	FatalLevel
+	// PanicLevel defines panic log level.
+	PanicLevel
+	// NoLevel defines an absent log level.
+	NoLevel
 )
 
-func Log(level uint32, message string) {
+func Log(level Level, message string) {
 	ptr, size := StringToPtr(message)
 	_log(level, ptr, size)
 	runtime.KeepAlive(message) // keep message alive until ptr is no longer needed.
 }
 
 //go:wasmimport env log
-func _log(level, ptr, size uint32)
+func _log(level Level, ptr, size uint32)
 
 func PtrToString(ptr uint32, size uint32) string {
 	return unsafe.String((*byte)(unsafe.Pointer(uintptr(ptr))), size)

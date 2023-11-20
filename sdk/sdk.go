@@ -6,8 +6,6 @@ import "C"
 import (
 	"runtime"
 	"unsafe"
-
-	"github.com/andrescosta/wrkl/sdk"
 )
 
 type EventFunc func(string) string
@@ -44,9 +42,9 @@ func StringToLeakedPtr(s string) (uint32, uint32) {
 //
 //export greet
 func _event(ptr, size uint32) (ptrSize uint64) {
-	data := sdk.PtrToString(ptr, size)
+	data := PtrToString(ptr, size)
 	result := EventFunc(data)
-	ptr, size = sdk.StringToLeakedPtr(g)
+	ptr, size = StringToLeakedPtr(g)
 	return (uint64(ptr) << uint64(32)) | uint64(size)
 }
 
@@ -58,8 +56,8 @@ func _event(ptr, size uint32) (ptrSize uint64) {
 //
 //export greeting
 func _result(ptr, size uint32) (ptrSize uint64) {
-	name := sdk.PtrToString(ptr, size)
+	name := PtrToString(ptr, size)
 	g := "a"
-	ptr, size = sdk.StringToLeakedPtr(g)
+	ptr, size = StringToLeakedPtr(g)
 	return (uint64(ptr) << uint64(32)) | uint64(size)
 }

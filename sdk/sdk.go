@@ -47,17 +47,3 @@ func _event(ptr, size uint32) (ptrSize uint64) {
 	ptr, size = StringToLeakedPtr(result)
 	return (uint64(ptr) << uint64(32)) | uint64(size)
 }
-
-// _greeting is a WebAssembly export that accepts a string pointer (linear memory
-// offset) and returns a pointer/size pair packed into a uint64.
-//
-// Note: This uses a uint64 instead of two result values for compatibility with
-// WebAssembly 1.0.
-//
-//export greeting
-func _result(ptr, size uint32) (ptrSize uint64) {
-	name := PtrToString(ptr, size)
-	g := "a"
-	ptr, size = StringToLeakedPtr(g)
-	return (uint64(ptr) << uint64(32)) | uint64(size)
-}

@@ -8,3 +8,13 @@ github.com/andrescosta/wrkl/sdk v0.0.0-20231120171159-85896a418e08 h1:fgbCitmPFN
 github.com/andrescosta/wrkl/sdk v0.0.0-20231120171159-85896a418e08/go.mod h1:rvqPuRO+nD/p/Vd5cnVSOc19bc2zGKBvEDYHy7CZRN0=
 github.com/andrescosta/wrkl/sdk v0.0.0-20231120174820-7843361cecc9 h1:IanzBACzTudKmZd3yb4rCoGL+8GtrZD4konTDr/uf6c=
 github.com/andrescosta/wrkl/sdk v0.0.0-20231120174820-7843361cecc9/go.mod h1:rvqPuRO+nD/p/Vd5cnVSOc19bc2zGKBvEDYHy7CZRN0=
+github.com/andrescosta/wrkl/sdk v0.0.0-20231120175345-43b3dffa2dc8 h1:6CX/IGUcWOK8mcAYyvPL6RRuAY5UaLQHeecb8kogJZ4=
+github.com/andrescosta/wrkl/sdk v0.0.0-20231120175345-43b3dffa2dc8/go.mod h1:rvqPuRO+nD/p/Vd5cnVSOc19bc2zGKBvEDYHy7CZRN0=
+github.com/andrescosta/wrkl/sdk v0.0.0-20231120175514-d7d80800eb3d h1:+27H9HUJAINBxIxoC/XrLD5nKaLsNFKVvk5WDciZJ3Y=
+github.com/andrescosta/wrkl/sdk v0.0.0-20231120175514-d7d80800eb3d/go.mod h1:rvqPuRO+nD/p/Vd5cnVSOc19bc2zGKBvEDYHy7CZRN0=
+github.com/andrescosta/wrkl/sdk v0.0.0-20231120175705-748781127152 h1:8QbTXWzO3U/jPB5tz973Ju7+T4hU54pLjN/RpU0KYGk=
+github.com/andrescosta/wrkl/sdk v0.0.0-20231120175705-748781127152/go.mod h1:rvqPuRO+nD/p/Vd5cnVSOc19bc2zGKBvEDYHy7CZRN0=
+github.com/andrescosta/wrkl/sdk v0.0.0-20231120175924-a1ceefd2dded h1:uZcqpO37f7sXyCTY4xWne7Dj1wxMPErXXhSVuFt3VbI=
+github.com/andrescosta/wrkl/sdk v0.0.0-20231120175924-a1ceefd2dded/go.mod h1:rvqPuRO+nD/p/Vd5cnVSOc19bc2zGKBvEDYHy7CZRN0=
+github.com/andrescosta/wrkl/sdk v0.0.0-20231120180130-43d35926982c h1:InG7JR5C/RB/abuUWz8Uqghs1pZg9t0cpajHo0q9eO8=
+github.com/andrescosta/wrkl/sdk v0.0.0-20231120180130-43d35926982c/go.mod h1:rvqPuRO+nD/p/Vd5cnVSOc19bc2zGKBvEDYHy7CZRN0=

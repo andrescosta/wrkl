@@ -1,8 +1,5 @@
 package main
 
-// #include <stdlib.h>
-import "C"
-
 import (
 	"fmt"
 
@@ -12,44 +9,12 @@ import (
 // main is required for TinyGo to compile to Wasm.
 func main() {}
 
-// greet prints a greeting to the console.
-func greet(name string) {
-	sdk.Log(fmt.Sprint("wasm >> ", greeting(name)))
-}
-
+//export init
 func _init() {
-	sdk.Event = test
+	sdk.OnEvent = test
 }
 
 func test(data string) string {
 	sdk.Log(fmt.Sprint("wasm >> ", data))
 	return "1"
-}
-
-// greeting gets a greeting for the name.
-func greeting(name string) string {
-	return fmt.Sprint("Hello, ", name, "!")
-}
-
-// _greet is a WebAssembly export that accepts a string pointer (linear memory
-// offset) and calls greet.
-//
-//export greet
-func _greet(ptr, size uint32) {
-	name := sdk.PtrToString(ptr, size)
-	greet(name)
-}
-
-// _greeting is a WebAssembly export that accepts a string pointer (linear memory
-// offset) and returns a pointer/size pair packed into a uint64.
-//
-// Note: This uses a uint64 instead of two result values for compatibility with
-// WebAssembly 1.0.
-//
-//export greeting
-func _greeting(ptr, size uint32) (ptrSize uint64) {
-	name := sdk.PtrToString(ptr, size)
-	g := greeting(name)
-	ptr, size = sdk.StringToLeakedPtr(g)
-	return (uint64(ptr) << uint64(32)) | uint64(size)
 }

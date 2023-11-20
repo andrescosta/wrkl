@@ -37,10 +37,7 @@ func StringToLeakedPtr(s string) (uint32, uint32) {
 	return uint32(uintptr(ptr)), uint32(size)
 }
 
-// _greet is a WebAssembly export that accepts a string pointer (linear memory
-// offset) and calls greet.
-//
-//export greet
+//export event
 func _event(ptr, size uint32) (ptrSize uint64) {
 	data := PtrToString(ptr, size)
 	result := Event(data)

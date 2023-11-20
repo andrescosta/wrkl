@@ -8,6 +8,10 @@ import (
 	"unsafe"
 )
 
+type func EventFunc(string)(string)
+
+var Event EventFunc
+
 func Log(message string) {
 	ptr, size := StringToPtr(message)
 	_log(ptr, size)
@@ -32,3 +36,29 @@ func StringToLeakedPtr(s string) (uint32, uint32) {
 	copy(unsafe.Slice((*byte)(ptr), size), s)
 	return uint32(uintptr(ptr)), uint32(size)
 }
+
+// _greet is a WebAssembly export that accepts a string pointer (linear memory
+// offset) and calls greet.
+//
+//export greet
+func _event(ptr, size uint32) (ptrSize uint64){
+	data := sdk.PtrToString(ptr, size)
+	result:= EventFunc(data)
+	ptr, size = sdk.StringToLeakedPtr(g)
+	return (uint64(ptr) << uint64(32)) | uint64(size)
+}
+
+// _greeting is a WebAssembly export that accepts a string pointer (linear memory
+// offset) and returns a pointer/size pair packed into a uint64.
+//
+// Note: This uses a uint64 instead of two result values for compatibility with
+// WebAssembly 1.0.
+//
+//export greeting
+func _result(ptr, size uint32) (ptrSize uint64) {
+	name := sdk.PtrToString(ptr, size)
+	g := "a"
+	ptr, size = sdk.StringToLeakedPtr(g)
+	return (uint64(ptr) << uint64(32)) | uint64(size)
+}
+

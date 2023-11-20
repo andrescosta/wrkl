@@ -10,7 +10,7 @@ import (
 
 type EventFunc func(string) string
 
-var Event EventFunc
+var OnEvent EventFunc
 
 func Log(message string) {
 	ptr, size := StringToPtr(message)
@@ -40,7 +40,7 @@ func StringToLeakedPtr(s string) (uint32, uint32) {
 //export event
 func _event(ptr, size uint32) (ptrSize uint64) {
 	data := PtrToString(ptr, size)
-	result := Event(data)
+	result := OnEvent(data)
 	ptr, size = StringToLeakedPtr(result)
 	return (uint64(ptr) << uint64(32)) | uint64(size)
 }

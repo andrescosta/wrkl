@@ -15,6 +15,7 @@ func _init() {
 }
 
 func test(data string) string {
-	sdk.Log(fmt.Sprint("wasm >> ", data))
+	sdk.Log(sdk.Error, fmt.Sprint("error wasm >> ", data))
+	sdk.Log(sdk.Info, fmt.Sprint("info wasm >> ", data))
 	return "1"
 }

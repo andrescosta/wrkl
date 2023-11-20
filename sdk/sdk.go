@@ -12,14 +12,19 @@ type EventFunc func(string) string
 
 var OnEvent EventFunc
 
-func Log(message string) {
+const (
+	Error = 0
+	Info  = 1
+)
+
+func Log(level uint32, message string) {
 	ptr, size := StringToPtr(message)
-	_log(ptr, size)
+	_log(level, ptr, size)
 	runtime.KeepAlive(message) // keep message alive until ptr is no longer needed.
 }
 
 //go:wasmimport env log
-func _log(ptr, size uint32)
+func _log(level, ptr, size uint32)
 
 func PtrToString(ptr uint32, size uint32) string {
 	return unsafe.String((*byte)(unsafe.Pointer(uintptr(ptr))), size)

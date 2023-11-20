@@ -9,7 +9,7 @@ import (
 )
 
 func Log(message string) {
-	ptr, size := stringToPtr(message)
+	ptr, size := StringToPtr(message)
 	_log(ptr, size)
 	runtime.KeepAlive(message) // keep message alive until ptr is no longer needed.
 }

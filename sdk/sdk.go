@@ -43,8 +43,8 @@ func StringToLeakedPtr(s string) (uint32, uint32) {
 //export greet
 func _event(ptr, size uint32) (ptrSize uint64) {
 	data := PtrToString(ptr, size)
-	result := EventFunc(data)
-	ptr, size = StringToLeakedPtr(g)
+	result := Event(data)
+	ptr, size = StringToLeakedPtr(result)
 	return (uint64(ptr) << uint64(32)) | uint64(size)
 }
 

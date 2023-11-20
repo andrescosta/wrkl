@@ -13,7 +13,7 @@ func main() {}
 
 // greet prints a greeting to the console.
 func greet(name string) {
-	sdk.log(fmt.Sprint("wasm >> ", greeting(name)))
+	sdk.Log(fmt.Sprint("wasm >> ", greeting(name)))
 }
 
 
@@ -27,7 +27,7 @@ func greeting(name string) string {
 //
 //export greet
 func _greet(ptr, size uint32) {
-	name := sdk.ptrToString(ptr, size)
+	name := sdk.PtrToString(ptr, size)
 	greet(name)
 }
 
@@ -39,9 +39,9 @@ func _greet(ptr, size uint32) {
 //
 //export greeting
 func _greeting(ptr, size uint32) (ptrSize uint64) {
-	name := sdk.ptrToString(ptr, size)
+	name := sdk.PtrToString(ptr, size)
 	g := greeting(name)
-	ptr, size = sdk.stringToLeakedPtr(g)
+	ptr, size = sdk.StringToLeakedPtr(g)
 	return (uint64(ptr) << uint64(32)) | uint64(size)
 }
 

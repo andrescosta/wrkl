@@ -5,6 +5,7 @@ import "C"
 
 import (
 	"fmt"
+
 	"github.com/andrescosta/wrkl/sdk"
 )
 
@@ -16,6 +17,14 @@ func greet(name string) {
 	sdk.Log(fmt.Sprint("wasm >> ", greeting(name)))
 }
 
+func _init() {
+	sdk.Event = test
+}
+
+func test(data string) string {
+	sdk.Log(fmt.Sprint("wasm >> ", data))
+	return "1"
+}
 
 // greeting gets a greeting for the name.
 func greeting(name string) string {
@@ -44,4 +53,3 @@ func _greeting(ptr, size uint32) (ptrSize uint64) {
 	ptr, size = sdk.StringToLeakedPtr(g)
 	return (uint64(ptr) << uint64(32)) | uint64(size)
 }
-

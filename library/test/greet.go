@@ -1,8 +1,6 @@
 package main
 
 import (
-	"fmt"
-
 	"github.com/andrescosta/wrkl/sdk"
 )
 
@@ -15,7 +13,7 @@ func _init() {
 }
 
 func test(data string) string {
-	sdk.Log(sdk.Error, fmt.Sprint("error wasm >> ", data))
-	sdk.Log(sdk.Info, fmt.Sprint("info wasm >> ", data))
-	return "1"
+	sdk.Log(sdk.DebugLevel, data)
+	sdk.Log(sdk.InfoLevel, data)
+	return "ok"
 }

@@ -57,7 +57,7 @@ func StringToLeakedPtr(s string) (uint32, uint32) {
 }
 
 //export event
-func _event(ptr, size uint32) uint64 {
+func event(ptr, size uint32) uint64 {
 	data := PtrToString(ptr, size)
 	result := OnEvent(data)
 	ptr, size = StringToLeakedPtr(result)

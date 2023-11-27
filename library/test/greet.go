@@ -15,5 +15,5 @@ func _init() {
 func test(data string) string {
 	sdk.Log(sdk.DebugLevel, data)
 	sdk.Log(sdk.InfoLevel, data)
-	return "ok"
+	return 1, "ok"
 }

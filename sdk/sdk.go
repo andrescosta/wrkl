@@ -8,7 +8,7 @@ import (
 	"unsafe"
 )
 
-type EventFunc func(string) string
+type EventFunc func(string) (uint64, string)
 
 var OnEvent EventFunc
 
@@ -50,9 +50,10 @@ func StringToLeakedPtr(s string) (uint32, uint32) {
 }
 
 //export event
-func event(ptr, size uint32) uint64 {
+func event(ptr, size uint32) (uint64, uint64) {
 	data := PtrToString(ptr, size)
-	result := OnEvent(data)
+	code, result := OnEvent(data)
 	ptr, size = StringToLeakedPtr(result)
-	return (uint64(ptr) << uint64(32)) | uint64(size)
+	ptrRes := (uint64(ptr) << uint64(32)) | uint64(size)
+	return code, ptrRes
 }

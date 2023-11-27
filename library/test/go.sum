@@ -2,3 +2,5 @@ github.com/andrescosta/wrkl/sdk v0.0.0-20231126205540-4500529f2426 h1:Jc+rSeeMO9
 github.com/andrescosta/wrkl/sdk v0.0.0-20231126205540-4500529f2426/go.mod h1:rvqPuRO+nD/p/Vd5cnVSOc19bc2zGKBvEDYHy7CZRN0=
 github.com/andrescosta/wrkl/sdk v0.0.0-20231127010505-d42f8431eba1 h1:r2p58EOrqnwLJQ5udehyPK509DL+Km+9rZtOuY6NBhw=
 github.com/andrescosta/wrkl/sdk v0.0.0-20231127010505-d42f8431eba1/go.mod h1:rvqPuRO+nD/p/Vd5cnVSOc19bc2zGKBvEDYHy7CZRN0=
+github.com/andrescosta/wrkl/sdk v0.0.0-20231127030527-e2bdc6d2331a h1:b2utnJpnlj25oo0wqBh9kgpltZ6QnN0iK1mkVQRMz9E=
+github.com/andrescosta/wrkl/sdk v0.0.0-20231127030527-e2bdc6d2331a/go.mod h1:rvqPuRO+nD/p/Vd5cnVSOc19bc2zGKBvEDYHy7CZRN0=

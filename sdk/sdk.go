@@ -24,6 +24,10 @@ const (
 	NoLevel
 )
 
+const (
+	NoError uint64 = 0
+)
+
 func Log(level Level, message string) {
 	ptr, size := StringToPtr(message)
 	_log(level, ptr, size)

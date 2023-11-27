@@ -12,7 +12,7 @@ func _init() {
 	sdk.OnEvent = test
 }
 
-func test(data string) string {
+func test(data string) (uint64, string) {
 	sdk.Log(sdk.DebugLevel, data)
 	sdk.Log(sdk.InfoLevel, data)
 	return 1, "ok"
